@@ -1,4 +1,12 @@
 class Stock < ApplicationRecord
+  # Asociations
+  has_many :user_stocks
+  has_many :users, through: :user_stocks
+
+  # Validations
+  validates :name, :ticker, presence: true
+
+  # Method definitions
   def self.new_lookup(_ticker_symbol)
     client =
       IEX::Api::Client.new(
