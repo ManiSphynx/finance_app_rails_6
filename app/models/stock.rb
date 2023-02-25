@@ -4,7 +4,7 @@ class Stock < ApplicationRecord
   has_many :users, through: :user_stocks
 
   # Validations
-  validates :name, :ticker, presence: true
+  validates :name, :ticker, :last_price, presence: true
 
   # Method definitions
   def self.new_lookup(_ticker_symbol)
@@ -25,5 +25,9 @@ class Stock < ApplicationRecord
     rescue => exception
       return nil
     end
+  end
+
+  def self.check_db(_ticker_symbol)
+    where(ticker: _ticker_symbol).first
   end
 end
