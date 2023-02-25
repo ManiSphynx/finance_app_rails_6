@@ -3,6 +3,7 @@ class StocksController < ApplicationController
 
   def search
     @stock = Stock.new_lookup(params[:stock])
+    @user = current_user
 
     if @stock
       respond_to { |format| format.js { render partial: "users/result" } }
