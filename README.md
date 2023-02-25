@@ -46,6 +46,8 @@ rails server
 2. Open your web browser and visit the address http://localhost:3000.
 3. From there you can see the stock price of the most popular companies.
 
+* Optionally run bundle exec rails webpacker:install
+
 ### Contributing 🤝
 
 If you want to contribute to this project, please create a pull request with your changes and I'll be happy to review them.
